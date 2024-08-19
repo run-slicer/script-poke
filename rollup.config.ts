@@ -12,7 +12,6 @@ export default {
         dir: "dist",
         format: "esm",
     },
-    treeshake: false, // dead code elimination breaks TeaVM
     plugins: [
         nodeResolve(),
         typescript(),

@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@run-slicer/poke':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.2
+        version: 1.0.2
       '@run-slicer/script':
-        specifier: ^0.3.0
-        version: 0.3.0
+        specifier: ^0.5.0
+        version: 0.5.0
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -165,11 +165,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@run-slicer/poke@1.0.1':
-    resolution: {integrity: sha512-mD1tDUwxD1EHj7f4pSWLjO97MLllZ+isPDLB66+7VWtVf1e8sHmEAXGpcbqEpGfUiZFSnop6z1DOFWaBy3sbUQ==}
+  '@run-slicer/poke@1.0.2':
+    resolution: {integrity: sha512-yZjK7RQcv9djUatDTSA2CALA47/o/8mPHezH/42Vx5IoWa2XI+omm4Fpg+7RyyEbhXskKJwZ8ulwHbKbZoKueA==}
 
-  '@run-slicer/script@0.3.0':
-    resolution: {integrity: sha512-xN1FsSEyw1Dt0GUdzV/PfEijFVnZ0w5u8kspl1UJfOCd/MnJaK2E/hbK+/tRjb6wciuiP77i1yQ1yNqN+8kNyA==}
+  '@run-slicer/script@0.5.0':
+    resolution: {integrity: sha512-nEY7ZpO5PBjTC773/ya70qjvRd0pgrvkg/nZZDZzdtBj/hSPpZru2GTycsdZzjQhJghr78AoGz5XQchjM9ERjQ==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -340,9 +340,9 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.21.0':
     optional: true
 
-  '@run-slicer/poke@1.0.1': {}
+  '@run-slicer/poke@1.0.2': {}
 
-  '@run-slicer/script@0.3.0': {}
+  '@run-slicer/script@0.5.0': {}
 
   '@types/estree@1.0.5': {}
 

@@ -10,8 +10,8 @@
         "format": "prettier . --write"
     },
     "dependencies": {
-        "@run-slicer/poke": "^1.0.1",
-        "@run-slicer/script": "^0.3.0"
+        "@run-slicer/poke": "^1.0.2",
+        "@run-slicer/script": "^0.5.0"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^15.2.3",

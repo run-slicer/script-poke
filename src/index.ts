@@ -25,7 +25,7 @@ export default {
     load(context: ScriptContext): void | Promise<void> {
         context.addEventListener("preload", async (event, context) => {
             event.data = await analyze(event.data, {
-                passes: 5,
+                passes: 1,
                 optimize: (context.script.options[0] as CheckboxOption).checked,
                 verify: (context.script.options[1] as CheckboxOption).checked,
             });
