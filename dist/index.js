@@ -2820,30 +2820,29 @@ G.prototype.__teavm_class__=function(){return Bwn(this);};
 let M9=Symbol('jsoClass');
 (()=>{let c;c=AEL.prototype;c[M9]=true;c.onExecute=c.DL;c=ABT.prototype;c[M9]=true;c.accept=c.DM;c=ABS.prototype;c[M9]=true;c.accept=c.DM;c=ADp.prototype;c[M9]=true;c.onTimer=c.DN;})();
 
+const optimize = {
+    id: "optimize",
+    type: "checkbox",
+    label: "Optimize",
+    checked: true,
+};
+const verify = {
+    id: "verify",
+    type: "checkbox",
+    label: "Verify",
+    checked: true,
+};
 var index = {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: "1.0.0",
-    options: [
-        {
-            id: "optimize",
-            type: "checkbox",
-            label: "Optimize",
-            checked: true,
-        },
-        {
-            id: "verify",
-            type: "checkbox",
-            label: "Verify",
-            checked: true,
-        },
-    ],
+    options: [optimize, verify],
     load(context) {
-        context.addEventListener("preload", async (event, context) => {
+        context.addEventListener("preload", async (event) => {
             event.data = await C(event.data, {
                 passes: 1,
-                optimize: context.script.options[0].checked,
-                verify: context.script.options[1].checked,
+                optimize: optimize.checked,
+                verify: verify.checked,
             });
         });
     },

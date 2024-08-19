@@ -4,30 +4,31 @@ import { analyze } from "@run-slicer/poke";
 // replaced by Rollup
 declare var __SCRIPT_VERSION__: string;
 
+const optimize: CheckboxOption = {
+    id: "optimize",
+    type: "checkbox",
+    label: "Optimize",
+    checked: true,
+};
+
+const verify: CheckboxOption = {
+    id: "verify",
+    type: "checkbox",
+    label: "Verify",
+    checked: true,
+};
+
 export default {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: __SCRIPT_VERSION__,
-    options: [
-        {
-            id: "optimize",
-            type: "checkbox",
-            label: "Optimize",
-            checked: true,
-        } as CheckboxOption,
-        {
-            id: "verify",
-            type: "checkbox",
-            label: "Verify",
-            checked: true,
-        } as CheckboxOption,
-    ],
+    options: [optimize, verify],
     load(context: ScriptContext): void | Promise<void> {
-        context.addEventListener("preload", async (event, context) => {
+        context.addEventListener("preload", async (event) => {
             event.data = await analyze(event.data, {
                 passes: 1,
-                optimize: (context.script.options[0] as CheckboxOption).checked,
-                verify: (context.script.options[1] as CheckboxOption).checked,
+                optimize: optimize.checked,
+                verify: verify.checked,
             });
         });
     },
