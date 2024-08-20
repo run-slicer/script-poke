@@ -10,7 +10,7 @@
         "format": "prettier . --write"
     },
     "dependencies": {
-        "@run-slicer/poke": "^1.0.2",
+        "@run-slicer/poke": "^1.0.3",
         "@run-slicer/script": "^0.5.0"
     },
     "devDependencies": {

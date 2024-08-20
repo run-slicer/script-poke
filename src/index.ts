@@ -18,6 +18,13 @@ const verify: CheckboxOption = {
     checked: true,
 };
 
+const inline: CheckboxOption = {
+    id: "inline",
+    type: "checkbox",
+    label: "Inline",
+    checked: false,
+};
+
 export default {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
@@ -29,6 +36,7 @@ export default {
                 passes: 1,
                 optimize: optimize.checked,
                 verify: verify.checked,
+                inline: inline.checked,
             });
         });
     },
