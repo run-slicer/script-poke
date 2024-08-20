@@ -29,7 +29,7 @@ export default {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: __SCRIPT_VERSION__,
-    options: [optimize, verify],
+    options: [optimize, verify, inline],
     load(context: ScriptContext): void | Promise<void> {
         context.addEventListener("preload", async (event) => {
             event.data = await analyze(event.data, {

@@ -2498,7 +2498,7 @@ var index = {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: "1.0.0",
-    options: [optimize, verify],
+    options: [optimize, verify, inline],
     load(context) {
         context.addEventListener("preload", async (event) => {
             event.data = await C(event.data, {
