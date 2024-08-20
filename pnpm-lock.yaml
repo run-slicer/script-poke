@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@run-slicer/poke':
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.0.4
+        version: 1.0.4
       '@run-slicer/script':
         specifier: ^0.5.0
         version: 0.5.0
@@ -165,8 +165,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@run-slicer/poke@1.0.3':
-    resolution: {integrity: sha512-NoURJsViuuu18os9Yww33uQJFJmJsArl1O/a7uDcbvHrHGFkglHWVHU0stXZPAmJkqGU6IRkZrq0XcAbVJI8GQ==}
+  '@run-slicer/poke@1.0.4':
+    resolution: {integrity: sha512-dLZUWUdMCYnAnvtLY81NC12yWEUMNvp5oVHP0qD/wkaAFHOA2+MYfjDjTM3knKSP2fEPjRUiIu2XSj/iW/CHJQ==}
 
   '@run-slicer/script@0.5.0':
     resolution: {integrity: sha512-nEY7ZpO5PBjTC773/ya70qjvRd0pgrvkg/nZZDZzdtBj/hSPpZru2GTycsdZzjQhJghr78AoGz5XQchjM9ERjQ==}
@@ -340,7 +340,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.21.0':
     optional: true
 
-  '@run-slicer/poke@1.0.3': {}
+  '@run-slicer/poke@1.0.4': {}
 
   '@run-slicer/script@0.5.0': {}
 
