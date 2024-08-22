@@ -25,10 +25,10 @@ const inline: CheckboxOption = {
     checked: false,
 };
 
-const refreshClasses = (context: ScriptContext) => {
+const refreshClasses = async (context: ScriptContext) => {
     for (const tab of context.editor.tabs()) {
         if (tab.entry?.type === "class") {
-            context.editor.refresh(tab.id);
+            await context.editor.refresh(tab.id, true /* we need it to reload the entry */);
         }
     }
 };
@@ -38,12 +38,12 @@ export default {
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: __SCRIPT_VERSION__,
     options: [optimize, verify, inline],
-    load(context: ScriptContext): void | Promise<void> {
-        refreshClasses(context);
+    async load(context: ScriptContext) {
+        await refreshClasses(context);
 
-        context.addEventListener("option_change", (event, context) => {
+        context.addEventListener("option_change", async (event, context) => {
             if (event.option.id.startsWith("poke-")) {
-                refreshClasses(context);
+                await refreshClasses(context);
             }
         });
         context.addEventListener("preload", async (event) => {
@@ -55,7 +55,7 @@ export default {
             });
         });
     },
-    unload(context: ScriptContext): void | Promise<void> {
-        refreshClasses(context);
+    async unload(context: ScriptContext) {
+        await refreshClasses(context);
     },
 } satisfies Script;

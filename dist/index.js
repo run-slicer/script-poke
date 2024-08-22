@@ -2503,10 +2503,10 @@ const inline = {
     label: "Inline",
     checked: false,
 };
-const refreshClasses = (context) => {
+const refreshClasses = async (context) => {
     for (const tab of context.editor.tabs()) {
         if (tab.entry?.type === "class") {
-            context.editor.refresh(tab.id);
+            await context.editor.refresh(tab.id, true /* we need it to reload the entry */);
         }
     }
 };
@@ -2515,11 +2515,11 @@ var index = {
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: "1.0.0",
     options: [optimize, verify, inline],
-    load(context) {
-        refreshClasses(context);
-        context.addEventListener("option_change", (event, context) => {
+    async load(context) {
+        await refreshClasses(context);
+        context.addEventListener("option_change", async (event, context) => {
             if (event.option.id.startsWith("poke-")) {
-                refreshClasses(context);
+                await refreshClasses(context);
             }
         });
         context.addEventListener("preload", async (event) => {
@@ -2531,8 +2531,8 @@ var index = {
             });
         });
     },
-    unload(context) {
-        refreshClasses(context);
+    async unload(context) {
+        await refreshClasses(context);
     },
 };
 

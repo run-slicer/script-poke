@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
       '@run-slicer/script':
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.7.2
+        version: 0.7.2
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
@@ -168,8 +168,8 @@ packages:
   '@run-slicer/poke@1.0.5':
     resolution: {integrity: sha512-ee/46yagL9mJczHVrJGYWpPYcRjRhBuN75ncsip09/OoJajg7DlUAqIA0QVx3RjKJlRzyoFb94PRW/DJnaCFFQ==}
 
-  '@run-slicer/script@0.7.0':
-    resolution: {integrity: sha512-7g3r1LQ9j3L4FzyvryHqcVQF8NEIj8tN/BuICz6Jf1u3gLAcLpG8zpt8uMbe4KFzv7WAbeLlEbfV88ymYlWr7A==}
+  '@run-slicer/script@0.7.2':
+    resolution: {integrity: sha512-0uCKC/VlltJi+qYtgLDCe+oUnOF2abr50doRP/t0crMJa5+seDFa4SgyyBxan/Mp1m18BX3MOjVqMqJz3hxK8w==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -342,7 +342,7 @@ snapshots:
 
   '@run-slicer/poke@1.0.5': {}
 
-  '@run-slicer/script@0.7.0': {}
+  '@run-slicer/script@0.7.2': {}
 
   '@types/estree@1.0.5': {}
 
