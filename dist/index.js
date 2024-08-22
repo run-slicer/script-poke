@@ -2486,19 +2486,19 @@ let LE=Symbol('jsoClass');
 (()=>{let c;c=AA2.prototype;c[LE]=true;c.onExecute=c.Bq;c=Yy.prototype;c[LE]=true;c.accept=c.Br;c=Yx.prototype;c[LE]=true;c.accept=c.Br;c=ZS.prototype;c[LE]=true;c.onTimer=c.Bs;})();
 
 const optimize = {
-    id: "optimize",
+    id: "poke-optimize",
     type: "checkbox",
     label: "Optimize",
     checked: true,
 };
 const verify = {
-    id: "verify",
+    id: "poke-verify",
     type: "checkbox",
     label: "Verify",
     checked: true,
 };
 const inline = {
-    id: "inline",
+    id: "poke-inline",
     type: "checkbox",
     label: "Inline",
     checked: false,
@@ -2509,6 +2509,15 @@ var index = {
     version: "1.0.0",
     options: [optimize, verify, inline],
     load(context) {
+        context.addEventListener("option_change", (event, context) => {
+            if (event.option.id.startsWith("poke-")) {
+                for (const tab of context.editor.tabs()) {
+                    if (tab.entry?.type === "class") {
+                        context.editor.refresh(tab.id);
+                    }
+                }
+            }
+        });
         context.addEventListener("preload", async (event) => {
             event.data = await C(event.data, {
                 passes: 1,

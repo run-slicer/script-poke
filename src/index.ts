@@ -5,21 +5,21 @@ import { analyze } from "@run-slicer/poke";
 declare var __SCRIPT_VERSION__: string;
 
 const optimize: CheckboxOption = {
-    id: "optimize",
+    id: "poke-optimize",
     type: "checkbox",
     label: "Optimize",
     checked: true,
 };
 
 const verify: CheckboxOption = {
-    id: "verify",
+    id: "poke-verify",
     type: "checkbox",
     label: "Verify",
     checked: true,
 };
 
 const inline: CheckboxOption = {
-    id: "inline",
+    id: "poke-inline",
     type: "checkbox",
     label: "Inline",
     checked: false,
@@ -31,6 +31,15 @@ export default {
     version: __SCRIPT_VERSION__,
     options: [optimize, verify, inline],
     load(context: ScriptContext): void | Promise<void> {
+        context.addEventListener("option_change", (event, context) => {
+            if (event.option.id.startsWith("poke-")) {
+                for (const tab of context.editor.tabs()) {
+                    if (tab.entry?.type === "class") {
+                        context.editor.refresh(tab.id);
+                    }
+                }
+            }
+        });
         context.addEventListener("preload", async (event) => {
             event.data = await analyze(event.data, {
                 passes: 1,
