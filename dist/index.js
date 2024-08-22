@@ -2503,19 +2503,23 @@ const inline = {
     label: "Inline",
     checked: false,
 };
+const refreshClasses = (context) => {
+    for (const tab of context.editor.tabs()) {
+        if (tab.entry?.type === "class") {
+            context.editor.refresh(tab.id);
+        }
+    }
+};
 var index = {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
     version: "1.0.0",
     options: [optimize, verify, inline],
     load(context) {
+        refreshClasses(context);
         context.addEventListener("option_change", (event, context) => {
             if (event.option.id.startsWith("poke-")) {
-                for (const tab of context.editor.tabs()) {
-                    if (tab.entry?.type === "class") {
-                        context.editor.refresh(tab.id);
-                    }
-                }
+                refreshClasses(context);
             }
         });
         context.addEventListener("preload", async (event) => {
@@ -2527,7 +2531,9 @@ var index = {
             });
         });
     },
-    unload(_context) { },
+    unload(context) {
+        refreshClasses(context);
+    },
 };
 
 export { index as default };
