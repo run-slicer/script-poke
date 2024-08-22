@@ -39,8 +39,6 @@ export default {
     version: __SCRIPT_VERSION__,
     options: [optimize, verify, inline],
     async load(context: ScriptContext) {
-        await refreshClasses(context);
-
         context.addEventListener("option_change", async (event, context) => {
             if (event.option.id.startsWith("poke-")) {
                 await refreshClasses(context);
@@ -54,6 +52,8 @@ export default {
                 inline: inline.checked,
             });
         });
+
+        await refreshClasses(context); // has to be last
     },
     async unload(context: ScriptContext) {
         await refreshClasses(context);

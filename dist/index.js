@@ -2516,7 +2516,6 @@ var index = {
     version: "1.0.0",
     options: [optimize, verify, inline],
     async load(context) {
-        await refreshClasses(context);
         context.addEventListener("option_change", async (event, context) => {
             if (event.option.id.startsWith("poke-")) {
                 await refreshClasses(context);
@@ -2530,6 +2529,7 @@ var index = {
                 inline: inline.checked,
             });
         });
+        await refreshClasses(context); // has to be last
     },
     async unload(context) {
         await refreshClasses(context);
