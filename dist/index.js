@@ -2485,23 +2485,26 @@ G.prototype.__teavm_class__=function(){return Bmq(this);};
 let LE=Symbol('jsoClass');
 (()=>{let c;c=AA2.prototype;c[LE]=true;c.onExecute=c.Bq;c=Yy.prototype;c[LE]=true;c.accept=c.Br;c=Yx.prototype;c[LE]=true;c.accept=c.Br;c=ZS.prototype;c[LE]=true;c.onTimer=c.Bs;})();
 
+const root = "poke.options";
+const readBool = (key, def) => (localStorage.getItem(key) ?? def.toString()) === "true";
+const writeBool = (key, val) => localStorage.setItem(key, val.toString());
 const optimize = {
     id: "poke-optimize",
     type: "checkbox",
     label: "Optimize",
-    checked: true,
+    checked: readBool(`${root}.optimize`, true),
 };
 const verify = {
     id: "poke-verify",
     type: "checkbox",
     label: "Verify",
-    checked: true,
+    checked: readBool(`${root}.verify`, true),
 };
 const inline = {
     id: "poke-inline",
     type: "checkbox",
     label: "Inline",
-    checked: false,
+    checked: readBool(`${root}.inline`, false),
 };
 const refreshClasses = async (context) => {
     for (const tab of context.editor.tabs()) {
@@ -2513,12 +2516,19 @@ const refreshClasses = async (context) => {
 var index = {
     name: "poke",
     description: "A script binding for the poke bytecode normalization and generic deobfuscation library.",
-    version: "1.0.0",
+    version: "1.1.0",
     options: [optimize, verify, inline],
     async load(context) {
         context.addEventListener("option_change", async (event, context) => {
             if (event.option.id.startsWith("poke-")) {
                 await refreshClasses(context);
+                const id = event.option.id.substring(5);
+                switch (event.option.type) {
+                    case "checkbox": {
+                        const checkbox = event.option;
+                        writeBool(`${root}.${id}`, checkbox.checked);
+                    }
+                }
             }
         });
         context.addEventListener("preload", async (event) => {

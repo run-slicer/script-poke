@@ -1,6 +1,6 @@
 {
     "name": "script-poke",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "module",
     "author": "run-slicer",
     "license": "GPL-2.0-only",
@@ -11,16 +11,16 @@
     },
     "dependencies": {
         "@run-slicer/poke": "^1.0.5",
-        "@run-slicer/script": "^0.7.2"
+        "@run-slicer/script": "^0.8.1"
     },
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-replace": "^5.0.7",
         "@rollup/plugin-typescript": "^11.1.6",
-        "@types/node": "^22.5.0",
+        "@types/node": "^22.5.4",
         "prettier": "^3.3.3",
-        "rollup": "^4.21.0",
-        "tslib": "^2.6.3",
+        "rollup": "^4.21.2",
+        "tslib": "^2.7.0",
         "typescript": "^5.5.4"
     },
     "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
