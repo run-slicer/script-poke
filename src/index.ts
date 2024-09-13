@@ -1,9 +1,6 @@
 import type { CheckboxOption, Script, ScriptContext } from "@run-slicer/script";
 import { analyze } from "@run-slicer/poke";
 
-// replaced by Rollup
-declare var __SCRIPT_VERSION__: string;
-
 const root = "poke.options";
 const readBool = (key: string, def: boolean): boolean => (localStorage.getItem(key) ?? def.toString()) === "true";
 const writeBool = (key: string, val: boolean) => localStorage.setItem(key, val.toString());
